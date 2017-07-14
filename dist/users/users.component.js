@@ -10,25 +10,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var user_service_1 = require("./shared/services/user.service");
-var AppComponent = (function () {
-    function AppComponent(service) {
-        this.service = service;
+var UsersComponent = (function () {
+    function UsersComponent() {
     }
-    AppComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        //grab users
-        this.service.getUsers()
-            .subscribe(function (users) { return _this.users = users; });
-    };
-    AppComponent = __decorate([
+    UsersComponent.prototype.ngOnInit = function () { };
+    UsersComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: './app/app.component.html',
+            selector: 'my-users',
+            templateUrl: './app/users/users.component.html'
         }),
-        __metadata("design:paramtypes", [user_service_1.UserService])
-    ], AppComponent);
-    return AppComponent;
+        __metadata("design:paramtypes", [])
+    ], UsersComponent);
+    return UsersComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.UsersComponent = UsersComponent;
+//# sourceMappingURL=users.component.js.map

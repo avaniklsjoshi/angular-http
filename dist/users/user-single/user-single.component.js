@@ -10,25 +10,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var user_service_1 = require("./shared/services/user.service");
-var AppComponent = (function () {
-    function AppComponent(service) {
+var router_1 = require("@angular/router");
+var user_service_1 = require("../../shared/services/user.service");
+var UserSingleComponent = (function () {
+    function UserSingleComponent(route, service) {
+        this.route = route;
         this.service = service;
     }
-    AppComponent.prototype.ngOnInit = function () {
+    UserSingleComponent.prototype.ngOnInit = function () {
         var _this = this;
-        //grab users
-        this.service.getUsers()
-            .subscribe(function (users) { return _this.users = users; });
+        //grab id from url
+        var id = this.route.snapshot.params['id'];
+        //use the userservice to getUser()
+        this.service.getUser(id)
+            .subscribe(function (user) { return _this.user = user; });
     };
-    AppComponent = __decorate([
+    UserSingleComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: './app/app.component.html',
+            templateUrl: './app/users/user-single/user-single.component.html'
         }),
-        __metadata("design:paramtypes", [user_service_1.UserService])
-    ], AppComponent);
-    return AppComponent;
+        __metadata("design:paramtypes", [router_1.ActivatedRoute, user_service_1.UserService])
+    ], UserSingleComponent);
+    return UserSingleComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.UserSingleComponent = UserSingleComponent;
+//# sourceMappingURL=user-single.component.js.map

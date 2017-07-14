@@ -10,25 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var user_service_1 = require("./shared/services/user.service");
-var AppComponent = (function () {
-    function AppComponent(service) {
+var user_service_1 = require("../../shared/services/user.service");
+var UserListComponent = (function () {
+    function UserListComponent(service) {
         this.service = service;
     }
-    AppComponent.prototype.ngOnInit = function () {
+    UserListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        //grab users
         this.service.getUsers()
             .subscribe(function (users) { return _this.users = users; });
     };
-    AppComponent = __decorate([
+    UserListComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: './app/app.component.html',
+            styles: ["\n    .user-card{cursor:pointer;}\n  "],
+            templateUrl: './app/users/user-list/user-list.component.html'
         }),
         __metadata("design:paramtypes", [user_service_1.UserService])
-    ], AppComponent);
-    return AppComponent;
+    ], UserListComponent);
+    return UserListComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.UserListComponent = UserListComponent;
+//# sourceMappingURL=user-list.component.js.map
