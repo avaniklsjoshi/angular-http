@@ -1,6 +1,8 @@
 export class User{
   id: number;
-  first_name:string;
-  last_name:string;
+  name:string;
+  username:string;
+  // first_name:string;
+  // last_name:string;
   avatar:string;
 }

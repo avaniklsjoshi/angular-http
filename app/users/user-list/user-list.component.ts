@@ -11,9 +11,15 @@ import {UserService} from '../../shared/services/user.service';
 
 export class UserListComponent implements OnInit{
   users:User[];
+  
   constructor(private service:UserService){}
+  
   ngOnInit(){
    this.service.getUsers()
-     .subscribe(users=>this.users=users);
+      .subscribe(users=>this.users=users);
+    //or  .subscribe(users=>{
+    //     //console.log(users);
+    //     this.users=users;
+    //  });
   }
 }

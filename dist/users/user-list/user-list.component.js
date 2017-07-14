@@ -19,6 +19,10 @@ var UserListComponent = (function () {
         var _this = this;
         this.service.getUsers()
             .subscribe(function (users) { return _this.users = users; });
+        //or  .subscribe(users=>{
+        //     //console.log(users);
+        //     this.users=users;
+        //  });
     };
     UserListComponent = __decorate([
         core_1.Component({
