@@ -15,6 +15,7 @@ var app_component_1 = require("./app.component");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
 require("rxjs/add/observable/throw");
+require("rxjs/add/operator/do");
 var user_service_1 = require("./shared/services/user.service");
 var users_component_1 = require("./users/users.component");
 var user_list_component_1 = require("./users/user-list/user-list.component");
