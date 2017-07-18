@@ -55,12 +55,26 @@ var UserService = (function () {
         if (err instanceof http_1.Response) {
             var body = err.json() || '';
             var error = body.error || JSON.stringify(body);
-            errMessage = err.status + " - " + err.statusText + " || '' " + error;
+            errMessage = err.status + " - " + (err.statusText || '') + " " + error;
         }
         else {
             errMessage = err.message ? err.message : err.toString();
         }
         return Observable_1.Observable.throw(errMessage);
+    };
+    /**Create  a user */
+    UserService.prototype.createUser = function (user) {
+        return this.http.put(this.usersUrl, user)
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    /**
+     * Update the user
+     */
+    UserService.prototype.updateUser = function (user) {
+        return this.http.put(this.usersUrl + "/" + user.id, user)
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
     };
     UserService = __decorate([
         core_1.Injectable(),

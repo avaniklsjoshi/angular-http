@@ -14,17 +14,32 @@ var app_routing_1 = require("./app.routing");
 var app_component_1 = require("./app.component");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
+require("rxjs/add/observable/throw");
 var user_service_1 = require("./shared/services/user.service");
 var users_component_1 = require("./users/users.component");
 var user_list_component_1 = require("./users/user-list/user-list.component");
 var user_single_component_1 = require("./users/user-single/user-single.component");
+var user_edit_component_1 = require("./users/user-edit/user-edit.component");
+var user_create_component_1 = require("./users/user-create/user-create.component");
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [app_routing_1.routing, platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule],
-            declarations: [app_component_1.AppComponent, users_component_1.UsersComponent, user_list_component_1.UserListComponent, user_single_component_1.UserSingleComponent],
+            imports: [
+                app_routing_1.routing,
+                platform_browser_1.BrowserModule,
+                http_1.HttpModule,
+                forms_1.FormsModule
+            ],
+            declarations: [
+                app_component_1.AppComponent,
+                users_component_1.UsersComponent,
+                user_list_component_1.UserListComponent,
+                user_single_component_1.UserSingleComponent,
+                user_edit_component_1.UserEditComponent,
+                user_create_component_1.UserCreateComponent
+            ],
             providers: [user_service_1.UserService],
             bootstrap: [app_component_1.AppComponent]
         })

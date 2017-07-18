@@ -4,7 +4,10 @@ var router_1 = require("@angular/router");
 var users_component_1 = require("./users/users.component");
 var user_list_component_1 = require("./users/user-list/user-list.component");
 var user_single_component_1 = require("./users/user-single/user-single.component");
-exports.routes = [{
+var user_edit_component_1 = require("./users/user-edit/user-edit.component");
+var user_create_component_1 = require("./users/user-create/user-create.component");
+exports.routes = [
+    {
         path: '',
         redirectTo: '/users',
         pathMatch: 'full'
@@ -16,19 +19,18 @@ exports.routes = [{
                 path: '',
                 component: user_list_component_1.UserListComponent
             },
-            //   {
-            //     path:'create',
-            //     component:UserCreateComponent
-            //   },
+            {
+                path: 'create',
+                component: user_create_component_1.UserCreateComponent
+            },
             {
                 path: ':id',
                 component: user_single_component_1.UserSingleComponent
+            },
+            {
+                path: ':id/edit',
+                component: user_edit_component_1.UserEditComponent
             }
-            //   {
-            //     path:':id/edit'
-            //     component:UserEditComponent
-            //   }
-            // ]
         ]
     }
 ];

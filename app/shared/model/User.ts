@@ -1,5 +1,5 @@
 export class User{
-  id: number;
+  id?: number;    //?for making it optional
   name:string;
   username:string;
   // first_name:string;

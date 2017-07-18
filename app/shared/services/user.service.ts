@@ -47,12 +47,29 @@ export class UserService{
       if(err instanceof Response){
         let body=err.json()||'';
         let error=body.error||JSON.stringify(body);
-        errMessage=`${err.status} - ${err.statusText} || '' ${error}`;
+        errMessage=`${err.status} - ${err.statusText || ''} ${error}`;
       }
       else{
         errMessage=err.message ? err.message : err.toString();
       }
       return Observable.throw(errMessage);
   }
+
+  /**Create  a user */
+  createUser(user:User):Observable<User>{
+    return this.http.put(this.usersUrl,user)
+      .map(res=>res.json())
+      .catch(this.handleError);
+  }
+
+
+    /**
+     * Update the user
+     */
+    updateUser(user:User):Observable<User>{
+      return this.http.put(`${this.usersUrl}/${user.id}`,user)
+        .map(res=>res.json())
+        .catch(this.handleError);
+    }
   
 }
