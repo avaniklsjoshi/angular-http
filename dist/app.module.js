@@ -12,26 +12,28 @@ var http_1 = require("@angular/http");
 var forms_1 = require("@angular/forms");
 var app_routing_1 = require("./app.routing");
 var app_component_1 = require("./app.component");
-require("rxjs/add/operator/map");
-require("rxjs/add/operator/catch");
-require("rxjs/add/observable/throw");
-require("rxjs/add/operator/do");
 var user_service_1 = require("./shared/services/user.service");
 var users_component_1 = require("./users/users.component");
 var user_list_component_1 = require("./users/user-list/user-list.component");
 var user_single_component_1 = require("./users/user-single/user-single.component");
 var user_edit_component_1 = require("./users/user-edit/user-edit.component");
 var user_create_component_1 = require("./users/user-create/user-create.component");
+var login_component_1 = require("./login/login.component");
+var auth_service_1 = require("./shared/services/auth.service");
+require("rxjs/add/operator/map");
+require("rxjs/add/operator/catch");
+require("rxjs/add/operator/do");
+require("rxjs/add/observable/throw");
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [
-                app_routing_1.routing,
                 platform_browser_1.BrowserModule,
                 http_1.HttpModule,
-                forms_1.FormsModule
+                forms_1.FormsModule,
+                app_routing_1.routing
             ],
             declarations: [
                 app_component_1.AppComponent,
@@ -39,9 +41,13 @@ var AppModule = (function () {
                 user_list_component_1.UserListComponent,
                 user_single_component_1.UserSingleComponent,
                 user_edit_component_1.UserEditComponent,
-                user_create_component_1.UserCreateComponent
+                user_create_component_1.UserCreateComponent,
+                login_component_1.LoginComponent
             ],
-            providers: [user_service_1.UserService],
+            providers: [
+                user_service_1.UserService,
+                auth_service_1.AuthService
+            ],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

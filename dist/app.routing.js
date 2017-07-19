@@ -6,6 +6,7 @@ var user_list_component_1 = require("./users/user-list/user-list.component");
 var user_single_component_1 = require("./users/user-single/user-single.component");
 var user_edit_component_1 = require("./users/user-edit/user-edit.component");
 var user_create_component_1 = require("./users/user-create/user-create.component");
+var login_component_1 = require("./login/login.component");
 exports.routes = [
     {
         path: '',
@@ -13,9 +14,14 @@ exports.routes = [
         pathMatch: 'full'
     },
     {
+        path: 'login',
+        component: login_component_1.LoginComponent
+    },
+    {
         path: 'users',
         component: users_component_1.UsersComponent,
-        children: [{
+        children: [
+            {
                 path: '',
                 component: user_list_component_1.UserListComponent
             },

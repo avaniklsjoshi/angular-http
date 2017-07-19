@@ -10,23 +10,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
+var auth_service_1 = require("./shared/services/auth.service");
 var user_service_1 = require("./shared/services/user.service");
 var AppComponent = (function () {
-    function AppComponent(service) {
-        this.service = service;
+    function AppComponent(userservice, authService, router) {
+        this.userservice = userservice;
+        this.authService = authService;
+        this.router = router;
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
         //grab users
-        this.service.getUsers()
+        this.userservice.getUsers()
             .subscribe(function (users) { return _this.users = users; });
+    };
+    Object.defineProperty(AppComponent.prototype, "isLoggedIn", {
+        /**
+         * is the user logged in?
+         */
+        get: function () {
+            return this.authService.isLoggedIn();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * Log the user out
+     */
+    AppComponent.prototype.logout = function () {
+        this.authService.logout();
+        this.router.navigate(['/login']);
     };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
             templateUrl: './app/app.component.html',
         }),
-        __metadata("design:paramtypes", [user_service_1.UserService])
+        __metadata("design:paramtypes", [user_service_1.UserService,
+            auth_service_1.AuthService,
+            router_1.Router])
     ], AppComponent);
     return AppComponent;
 }());

@@ -48,7 +48,7 @@ export class UserService {
    * Create the user
    */
   createUser(user: User): Observable<User> {
-    return this.http.post(this.usersUrl, user)
+    return this.http.post(this.usersUrl, user,)
       .map(res => res.json())
       .do(user => this.userCreated(user))
       .catch(this.handleError);
